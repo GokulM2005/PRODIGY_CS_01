@@ -1,0 +1,37 @@
+def caesar_cipher(text, shift, mode):
+  result = ""
+  for char in text:
+    if char.isalpha():
+      base = ord('A') if char.isupper() else ord('a')
+      new_ord = ord(char) + shift
+      new_ord = (new_ord - base) % 26 + base
+      result += chr(new_ord)
+    else:
+      result += char
+  return result
+
+def main():
+  while True:
+    print("Caesar Cipher Alogirthm")
+    print("1. Encrypt")
+    print("2. Decrypt")
+    print("3. Exit")
+    choice = input("Enter your choice : ")
+
+    if choice == '1':
+      text = input("Enter the message to be encrypted: ")
+      shift = int(input("Enter the shift value (positive integer): "))
+      encrypted_text = caesar_cipher(text, shift, "encrypt")
+      print("Encrypted message:", encrypted_text)
+    elif choice == '2':
+      text = input("Enter the message to be decrypted: ")
+      shift = int(input("Enter the shift value (positive integer): "))
+      decrypted_text = caesar_cipher(text, -shift, "decrypt")
+      print("Decrypted message:", decrypted_text)
+    elif choice == '3':
+      break
+    else:
+      print("Invalid choice!")
+
+if __name__ == "__main__":
+  main()
