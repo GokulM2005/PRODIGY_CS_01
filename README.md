@@ -1,1 +1,1 @@
-# PRODIGY_CS_01
+This python program does encrypt or decrypt the given text :)
